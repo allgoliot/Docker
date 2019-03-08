@@ -10,4 +10,4 @@ fi
 
 cd wordpress/with_mysql/
 systemctl start docker 
-docker-compose up
+docker-compose up -d 
