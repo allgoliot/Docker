@@ -7,7 +7,10 @@ then
 else
 	./install.sh	
 fi
+sudo systemctl start docker
+sudo docker-compose up -d
+sudo docker cp sources.list wordpress:/etc/apt/
+sudo docker exec wordpress apt update
+sudo docker exec wordpress apt-get -y install certbot python-certbot-apache -t stretch-backports
+sudo docker exec -it wordpress certbot --apache
 
-cd wordpress/with_mysql/
-systemctl start docker 
-docker-compose up -d 
